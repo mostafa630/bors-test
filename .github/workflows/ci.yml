@@ -1,0 +1,32 @@
+name: CI
+on:
+  push:
+    branches: 
+      - automation/bors/try
+      - automation/bors/auto
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run tests
+        run: |
+          echo "🧪 Running tests..."
+          sleep 2  # Simulate test time
+          echo "✅ All tests passed!"
+          
+      - name: Check formatting  
+        run: |
+          echo "🎨 Checking formatting..."
+          sleep 1
+          echo "✅ Formatting looks good!"
+          
+      - name: Lint code
+        run: |
+          echo "🔍 Linting code..."
+          sleep 1  
+          echo "✅ No lint issues found!"

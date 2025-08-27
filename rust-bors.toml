@@ -1,0 +1,13 @@
+# Bors configuration for test repository
+timeout = 3600
+merge_queue_enabled = true
+
+[labels]
+approved = ["+approved"]
+try = ["+testing"]
+try_succeeded = ["+test-passed", "-testing"] 
+try_failed = ["+test-failed", "-testing"]
+auto_build_succeeded = ["+merged"]
+auto_build_failed = ["+merge-failed"]
+
+labels_blocking_approval = ["do-not-merge", "wip"]
